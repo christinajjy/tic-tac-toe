@@ -1,12 +1,14 @@
 import React from "react";
 import { useState } from "react";
 export default function Board() {
+  const [xIsNext, setxIsNext]= useState(true);
   const [squares, setSquares]= useState(Array(9).fill(null));
 
   function handleClick(i){
     const nextSquares = squares.slice();
-    nextSquares[i]="X";
+    nextSquares[i]=(xIsNext)?"X":"O";
     setSquares(nextSquares);
+    setxIsNext(!xIsNext);
   }
   return(
   <div>
